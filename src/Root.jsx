@@ -7,10 +7,9 @@ const Root = () => {
   return (
     <BrowserRouter>
       <Header></Header>
-      <div style={{ margin: '0 10%' }}>
-        <Route path="/" exact component={MainPage} />
-        <Route path="/itemList" component={ItemListPage} />
-      </div>
+
+      <Route path="/" exact component={MainPage} />
+      <Route path="/itemList" component={ItemListPage} />
     </BrowserRouter>
   );
 };

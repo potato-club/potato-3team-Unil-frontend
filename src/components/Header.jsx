@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { customColor, customFontSize } from '../constants/index';
+import { customColor } from '../constants/index';
 import { Link } from 'react-router-dom';
-import { custom } from 'util.promisify';
+
 export const Header = () => {
   return (
     <div>
