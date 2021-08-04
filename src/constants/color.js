@@ -4,7 +4,6 @@ export const customColor = {
 
   backgroundColor: '#FFFFFF',
 
-  mainPageBackgroundColor: '#F6F6F6',
   lightGraytColor: '#C4C4C4',
 
   fontMainColor: '#000000',

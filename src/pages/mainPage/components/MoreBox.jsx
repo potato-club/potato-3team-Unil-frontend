@@ -5,7 +5,7 @@ import { customColor } from '../../../constants/index';
 export const MoreBox = () => {
   return (
     <MoreButton>
-      <Link to="/itemList" style={styledLink}>
+      <Link to="/product/list" style={styledLink}>
         More
       </Link>
     </MoreButton>

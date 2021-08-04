@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { PageTitle } from '../../../components/index';
-import { customColor } from '../../../constants/index';
+import { PageTitle } from '../../../../components/index';
+import { customColor } from '../../../../constants/index';
 
-export const ItemListHeader = () => {
-  const [titleName, setTitleName] = useState('Popular Item');
+export const ProductListHeader = ({ setType }) => {
+  const [titleName, setTitleName] = useState('All Product');
+
+  const onClickNav = (title) => {
+    setTitleName(title);
+    setType(title);
+  };
   return (
     <div>
       <PageTitle pageTitle={titleName}></PageTitle>
       <HeaderNav>
-        <HeaderItem>위스키</HeaderItem>
+        <NavItem onClick={() => onClickNav('All Product')}>All</NavItem>
         <VerticalLine />
-        <HeaderItem>데킬라</HeaderItem>
+        <NavItem onClick={() => onClickNav('위스키')}>위스키</NavItem>
         <VerticalLine />
-        <HeaderItem>리큐르</HeaderItem>
+        <NavItem onClick={() => onClickNav('리큐르')}>리큐르</NavItem>
         <VerticalLine />
-        <HeaderItem>럼</HeaderItem>
+        <NavItem onClick={() => onClickNav('럼')}>럼</NavItem>
         <VerticalLine />
-        <HeaderItem>브랜디</HeaderItem>
+        <NavItem onClick={() => onClickNav('브랜디')}>브랜디</NavItem>
         <VerticalLine />
-        <HeaderItem>보드카</HeaderItem>
+        <NavItem onClick={() => onClickNav('보드카')}>보드카</NavItem>
       </HeaderNav>
     </div>
   );
@@ -35,10 +40,10 @@ const HeaderNav = styled.ul`
   padding: 0;
   border: 1px solid ${customColor.subColor};
 `;
-const HeaderItem = styled.li`
+const NavItem = styled.li`
   margin: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px 20px;
   font-size: 20px;
   text-align: center;
   line-height: 100%;

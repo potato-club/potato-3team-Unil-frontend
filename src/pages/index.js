@@ -1,2 +1,2 @@
 export { MainPage } from './mainPage/MainPage.jsx';
-export { ItemListPage } from './itemList/ItemListPage';
+export { ProductListPage } from './product/list/ProductListPage';
