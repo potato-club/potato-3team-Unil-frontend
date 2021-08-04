@@ -17,7 +17,7 @@ const MoreButton = styled.button`
   top: -20%;
   right: 0%;
   width: 100px;
-  height: 40px;
+  height: 35px;
   border: 0;
   padding: 0;
   margin: 0;
@@ -28,7 +28,6 @@ const styledLink = {
   display: 'block',
   textDecoration: 'none',
   color: customColor.fontWhiteColor,
-  fontSize: '15px',
-  fontSize: '18px',
-  lineHeight: '38px',
+  fontSize: '14px',
+  lineHeight: '35px',
 };

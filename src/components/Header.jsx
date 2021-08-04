@@ -76,12 +76,7 @@ const HeaderNav = styled.ul`
   padding: 0;
   margin: 0;
 `;
-// const HeaderIconNav = styled.ul`
-//   display: flex;
-//   list-style: none;
-//   padding: 0;
-//   margin: 0;
-// `;
+
 const HeaderNavItem = styled.li`
   display: flex;
   justify-content: center;
