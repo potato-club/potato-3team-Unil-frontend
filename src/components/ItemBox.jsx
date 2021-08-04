@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import dummy from '../../../dummy/item';
-import { customColor } from '../../../constants/index';
+import dummy from '../dummy/item';
+import { customColor } from '../constants/index';
 export const ItemBox = ({ kinds }) => {
   const [itemKinds, setItemKinds] = useState(kinds);
   return (
     <Section>
       <ItemIamge>사진</ItemIamge>
       <ItemName>앱솔루트</ItemName>
-      <ItemPrice>135,000</ItemPrice>
+      <ItemPrice>135,000원</ItemPrice>
     </Section>
   );
 };
@@ -28,16 +28,18 @@ const ItemIamge = styled.div`
   padding: 0;
   width: 100%;
   height: 70%;
+  background-color: ${customColor.mainColor};
 `;
 
 const ItemName = styled.p`
-  text-align: center;
+  text-align: left;
   margin: 0;
-  padding: 0;
+  padding: 12px 12px;
 `;
 
 const ItemPrice = styled.p`
-  text-align: center;
+  text-align: left;
   margin: 0;
-  padding: 0;
+  padding: 12px 12px;
+  font-weight: bold;
 `;

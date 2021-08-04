@@ -7,9 +7,7 @@ import { RecommandItemArticle } from './components/index';
 export const MainPage = () => {
   return (
     <Section>
-      <MainPageCoverBox>
-        <MainPageCover src={cover}></MainPageCover>
-      </MainPageCoverBox>
+      <MainPageCover src={cover}></MainPageCover>
       <RecommandItemArticle title={"Today's Items"}></RecommandItemArticle>
       <RecommandItemArticle title={'Poplur Items'}></RecommandItemArticle>
     </Section>
@@ -18,13 +16,8 @@ export const MainPage = () => {
 
 const Section = styled.div`
   background-color: ${customColor.mainPageBackgroundColor};
-`;
-const MainPageCoverBox = styled.div`
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  height: 250vh;
 `;
 const MainPageCover = styled.img`
   width: 100%;
-  height: 100%;
 `;

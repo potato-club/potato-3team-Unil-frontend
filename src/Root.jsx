@@ -6,8 +6,7 @@ import { MainPage, ItemListPage } from './pages/index';
 const Root = () => {
   return (
     <BrowserRouter>
-      <Header></Header>
-
+      <Header />
       <Route path="/" exact component={MainPage} />
       <Route path="/itemList" component={ItemListPage} />
     </BrowserRouter>
