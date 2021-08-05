@@ -14,10 +14,10 @@ export const ItemBox = ({ name, price }) => {
 const Section = styled.div`
   justify-content: center;
   align-items: center;
-  margin: 0 6px;
+  margin: 0 8px;
   padding: 0;
-  width: 200px;
-  height: 350px;
+  width: 240px;
+  height: 400px;
   border: 1px solid ${customColor.subColor};
   background-color: ${customColor.backgroundColor};
 `;

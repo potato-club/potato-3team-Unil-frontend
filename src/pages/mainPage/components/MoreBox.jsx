@@ -14,7 +14,7 @@ export const MoreBox = () => {
 
 const MoreButton = styled.button`
   position: absolute;
-  top: -20%;
+  top: -13%;
   right: 0%;
   width: 100px;
   height: 35px;
