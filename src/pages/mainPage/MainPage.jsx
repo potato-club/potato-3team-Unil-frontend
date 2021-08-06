@@ -1,5 +1,5 @@
 import React from 'react';
-import cover from './mainPageCover.png';
+import cover from '../../assets/image/mainPageCover.png';
 import styled from '@emotion/styled';
 import { customColor } from '../../constants/index';
 import { RecommandItemArticle } from './components/index';
@@ -9,7 +9,7 @@ export const MainPage = () => {
     <Section>
       <MainPageCover src={cover}></MainPageCover>
       <RecommandItemArticle title={"Today's Items"}></RecommandItemArticle>
-      <RecommandItemArticle title={'Poplur Items'}></RecommandItemArticle>
+      <RecommandItemArticle title={'Popular Items'}></RecommandItemArticle>
     </Section>
   );
 };

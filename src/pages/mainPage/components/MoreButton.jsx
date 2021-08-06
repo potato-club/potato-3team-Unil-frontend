@@ -2,20 +2,20 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { customColor } from '../../../constants/index';
-export const MoreBox = () => {
+export const MoreButton = () => {
   return (
-    <MoreButton>
+    <MoreWrapper>
       <Link to="/product/list" style={styledLink}>
         More
       </Link>
-    </MoreButton>
+    </MoreWrapper>
   );
 };
 
-const MoreButton = styled.button`
+const MoreWrapper = styled.button`
   position: absolute;
   top: -13%;
-  right: 0%;
+  right: 4.4%;
   width: 100px;
   height: 35px;
   border: 0;
