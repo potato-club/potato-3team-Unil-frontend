@@ -12,19 +12,26 @@ export const RecommandItemArticle = ({ title }) => {
 
   return (
     <Article>
-      <Title>{title}</Title>
-      <ItemListBox>
-        {title === 'Popular Items' && <MoreButton />}
-        <ItemListNav>
-          <FiChevronLeft style={NextButton} />
-          <ItemList>
-            {maxItem.map(({ id, name, price }) => (
-              <ItemBox key={id} name={name} price={price}></ItemBox>
-            ))}
-          </ItemList>
-          <FiChevronRight style={NextButton} />
-        </ItemListNav>
-      </ItemListBox>
+      <TitleWrapper>
+        <Air />
+        <Title>{title}</Title>
+        {title === 'Popular Items' ? (
+          <MoreButtonWrapper>
+            <MoreButton />
+          </MoreButtonWrapper>
+        ) : (
+          <Air />
+        )}
+      </TitleWrapper>
+      <ItemListNav>
+        <FiChevronLeft style={NextButton} />
+        <ItemList>
+          {maxItem.map(({ id, name, price }) => (
+            <ItemBox key={id} name={name} price={price}></ItemBox>
+          ))}
+        </ItemList>
+        <FiChevronRight style={NextButton} />
+      </ItemListNav>
     </Article>
   );
 };
@@ -44,9 +51,23 @@ const Title = styled.p`
   text-align: center;
   line-height: 180%;
 `;
-const ItemListBox = styled.div`
-  position: relative;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1015px;
 `;
+const Air = styled.div`
+  width: 100px;
+  height: 100px;
+`;
+const MoreButtonWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  height: 120px;
+`;
+
 const ItemListNav = styled.div`
   display: flex;
   margin: 0;

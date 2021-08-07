@@ -13,9 +13,8 @@ export const MoreButton = () => {
 };
 
 const MoreWrapper = styled.button`
-  position: absolute;
-  top: -13%;
-  right: 4.4%;
+  position: relative;
+
   width: 100px;
   height: 35px;
   border: 0;

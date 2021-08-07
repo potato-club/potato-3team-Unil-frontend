@@ -37,7 +37,7 @@ export const ProductListPage = () => {
         <Article>
           {typeData.map(({ id, name, price }) => (
             <ItemList key={id}>
-              <ItemBox name={name} price={price}></ItemBox>
+              <ItemBox name={name} price={price} />
             </ItemList>
           ))}
         </Article>
