@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { customColor } from '../../../constants/index';
+import { customColor } from 'constants/index';
 export const MoreButton = () => {
   return (
     <MoreWrapper>

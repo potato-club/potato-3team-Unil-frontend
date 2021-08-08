@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { customColor } from '../constants/index';
+import { customColor } from 'constants/index';
 import { Link } from 'react-router-dom';
 import { IoCartOutline, IoPersonCircleOutline } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
+
 export const Header = () => {
   return (
     <div>
@@ -20,14 +21,14 @@ export const Header = () => {
           <HeaderNavItem>
             <Link to="/product/list" style={styledLink}>
               ITEM
+              <RiArrowDropDownLine style={Icon} />
             </Link>
-            <RiArrowDropDownLine style={Icon} />
           </HeaderNavItem>
           <HeaderNavItem>
             <Link to="/faq" style={styledLink}>
               COMMUNITY
+              <RiArrowDropDownLine style={Icon} />
             </Link>
-            <RiArrowDropDownLine style={Icon} />
           </HeaderNavItem>
         </HeaderNav>
         <HeaderNav>
@@ -43,15 +44,7 @@ export const Header = () => {
           </HeaderIconItem>
         </HeaderNav>
       </HeaderSection>
-      <div
-        style={{
-          width: '100%',
-          textAlign: 'center',
-          borderBottom: '1px solid ',
-          borderBottomColor: customColor.subColor,
-          lineHeight: '0.1em',
-          margin: '0',
-        }}></div>
+      <HeaderBottomLine />
     </div>
   );
 };
@@ -71,21 +64,24 @@ const Title = styled.p`
   margin: 0;
 `;
 
-const HeaderNav = styled.ul`
+const HeaderNav = styled.div`
   display: flex;
-  list-style: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   padding: 0;
   margin: 0;
 `;
 
-const HeaderNavItem = styled.li`
+const HeaderNavItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   padding: 0 35px;
 `;
 
-const HeaderIconItem = styled.li`
+const HeaderIconItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +90,10 @@ const HeaderIconItem = styled.li`
 `;
 
 const styledLink = {
+  display: 'flex',
   textDecoration: 'none',
+  height: '30px',
+  lineHeight: '30px',
   color: customColor.fontMainColor,
   fontSize: '20px',
 };
@@ -107,3 +106,12 @@ const Icon = {
   cursor: 'pointer',
   color: customColor.fontMainColor,
 };
+
+const HeaderBottomLine = styled.div`
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid;
+  border-bottom-color: ${customColor.subColor};
+  line-height: 0.1em;
+  margin: 0;
+`;

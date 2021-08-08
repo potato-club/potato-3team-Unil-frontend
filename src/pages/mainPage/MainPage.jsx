@@ -1,7 +1,7 @@
 import React from 'react';
-import cover from '../../assets/image/mainPageCover.png';
+import cover from 'assets/image/mainPageCover.png';
 import styled from '@emotion/styled';
-import { customColor } from '../../constants/index';
+import { customColor } from 'constants/index';
 import { RecommandItemArticle } from './components/index';
 
 export const MainPage = () => {

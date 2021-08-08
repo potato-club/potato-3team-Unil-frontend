@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import dummy from '../../../dummy/item';
-import { ItemBox } from '../../../components/index';
+import dummy from 'dummy/item';
+import { ItemBox } from 'components/index';
 import { MoreButton } from './index';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+
 export const RecommandItemArticle = ({ title }) => {
   //mainPage에 최대 4개까지 출력할 수 있게 임시로 만든 기능
   const maxItem = dummy.filter((data) => {
@@ -13,25 +14,27 @@ export const RecommandItemArticle = ({ title }) => {
   return (
     <Article>
       <TitleWrapper>
-        <Air />
+        <AirBox />
         <Title>{title}</Title>
         {title === 'Popular Items' ? (
           <MoreButtonWrapper>
             <MoreButton />
           </MoreButtonWrapper>
         ) : (
-          <Air />
+          <AirBox />
         )}
       </TitleWrapper>
-      <ItemListNav>
+      <ItemListWrapper>
         <FiChevronLeft style={NextButton} />
         <ItemList>
-          {maxItem.map(({ id, name, price }) => (
-            <ItemBox key={id} name={name} price={price}></ItemBox>
+          {maxItem.map((data) => (
+            <ItemBoxWrapper key={data.id}>
+              <ItemBox data={data} />
+            </ItemBoxWrapper>
           ))}
         </ItemList>
         <FiChevronRight style={NextButton} />
-      </ItemListNav>
+      </ItemListWrapper>
     </Article>
   );
 };
@@ -58,7 +61,7 @@ const TitleWrapper = styled.div`
   align-items: center;
   width: 1015px;
 `;
-const Air = styled.div`
+const AirBox = styled.div`
   width: 100px;
   height: 100px;
 `;
@@ -68,7 +71,7 @@ const MoreButtonWrapper = styled.div`
   height: 120px;
 `;
 
-const ItemListNav = styled.div`
+const ItemListWrapper = styled.div`
   display: flex;
   margin: 0;
 
@@ -76,13 +79,15 @@ const ItemListNav = styled.div`
   align-items: center;
 `;
 
-const ItemList = styled.ul`
+const ItemList = styled.div`
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
 `;
-
+const ItemBoxWrapper = styled.div`
+  margin: 0 8px;
+`;
 const NextButton = {
   width: '40px',
   height: '40px',

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ProductListHeader } from './components/index';
-import { customColor } from '../../../constants/index';
+import { customColor } from 'constants/index';
 import styled from '@emotion/styled';
-import { ItemBox } from '../../../components/index';
-import dummy from '../../../dummy/item';
+import { ItemBox } from 'components/index';
+import dummy from 'dummy/item';
 
 export const ProductListPage = () => {
   const [productType, setProductType] = useState('All Product');
@@ -35,10 +35,10 @@ export const ProductListPage = () => {
           </SortListNav>
         </Header>
         <Article>
-          {typeData.map(({ id, name, price }) => (
-            <ItemList key={id}>
-              <ItemBox name={name} price={price} />
-            </ItemList>
+          {typeData.map((data) => (
+            <ItemBoxWrapper key={data.id}>
+              <ItemBox data={data} />
+            </ItemBoxWrapper>
           ))}
         </Article>
       </Section>
@@ -95,11 +95,11 @@ const Article = styled.div`
   padding: auto;
 `;
 
-const ItemList = styled.div`
+const ItemBoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 2px;
   margin-bottom: 30px;
   padding: 0;
 `;

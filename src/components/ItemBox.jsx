@@ -1,20 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { customColor } from '../constants/index';
-export const ItemBox = ({ name, price }) => {
+import { Link } from 'react-router-dom';
+import { customColor } from 'constants/index';
+export const ItemBox = ({ data }) => {
   return (
-    <Section>
-      <ItemIamge>사진</ItemIamge>
-      <ItemName>{name}</ItemName>
-      <ItemPrice>{price}원</ItemPrice>
-    </Section>
+    <Link to={{ pathname: '/product/detail', state: data }} style={linkstyle}>
+      <Section>
+        <ItemIamge>사진</ItemIamge>
+        <ItemName>{data.name}</ItemName>
+        <ItemPrice>{data.price}원</ItemPrice>
+      </Section>
+    </Link>
   );
+};
+const linkstyle = {
+  textDecoration: 'none',
+  color: customColor.fontMainColor,
 };
 
 const Section = styled.div`
   justify-content: center;
   align-items: center;
-  margin: 0 8px;
+  margin: 0;
   padding: 0;
   width: 240px;
   height: 400px;

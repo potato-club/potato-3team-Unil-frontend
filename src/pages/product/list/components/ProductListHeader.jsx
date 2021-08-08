@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { PageTitle } from '../../../../components/index';
-import { customColor } from '../../../../constants/index';
+import { PageTitle } from 'components/index';
+import { customColor } from 'constants/index';
 
 export const ProductListHeader = ({ setType }) => {
   const [titleName, setTitleName] = useState('All Product');
@@ -30,23 +30,21 @@ export const ProductListHeader = ({ setType }) => {
   );
 };
 
-const HeaderNav = styled.ul`
+const HeaderNav = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  list-style: none;
   width: 90%;
   margin: 20px auto;
   padding: 0;
   border: 1px solid ${customColor.subColor};
 `;
-const NavItem = styled.li`
+const NavItem = styled.div`
   margin: 0;
   width: 100%;
   padding: 15px 20px;
   font-size: 20px;
   text-align: center;
-  line-height: 100%;
   color: ${customColor.fontSubColor};
   cursor: pointer;
   &:hover {
