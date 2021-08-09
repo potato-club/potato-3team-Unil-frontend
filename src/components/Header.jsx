@@ -4,7 +4,7 @@ import { customColor } from 'constants/index';
 import { Link } from 'react-router-dom';
 import { IoCartOutline, IoPersonCircleOutline } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-
+import { DropDownBox } from './components/Header/DropDownBox';
 export const Header = () => {
   return (
     <div>
@@ -23,12 +23,18 @@ export const Header = () => {
               ITEM
               <RiArrowDropDownLine style={Icon} />
             </Link>
+            <DropDownWrapper>
+              <DropDownBox dataNumber={'0'} />
+            </DropDownWrapper>
           </HeaderNavItem>
           <HeaderNavItem>
             <Link to="/faq" style={styledLink}>
               COMMUNITY
               <RiArrowDropDownLine style={Icon} />
             </Link>
+            <DropDownWrapper>
+              <DropDownBox dataNumber={'1'} />
+            </DropDownWrapper>
           </HeaderNavItem>
         </HeaderNav>
         <HeaderNav>
@@ -52,7 +58,8 @@ const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 22px;
+  padding: 0 22px;
+  height: 60px;
   margin: 0;
 `;
 
@@ -72,13 +79,19 @@ const HeaderNav = styled.div`
   padding: 0;
   margin: 0;
 `;
-
+const DropDownWrapper = styled.div`
+  display: none;
+`;
 const HeaderNavItem = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 0 35px;
+  margin: 0 35px;
+  &:hover div {
+    display: flex;
+  }
 `;
 
 const HeaderIconItem = styled.div`

@@ -16,9 +16,9 @@ export const MainPage = () => {
 
 const Section = styled.div`
   background-color: ${customColor.backgroundColor};
-  height: 290vh;
+  height: 300vh;
 `;
 const MainPageCover = styled.img`
   width: 100%;
-  height: 92vh;
+  min-height: 93vh;
 `;
