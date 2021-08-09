@@ -1,7 +1,7 @@
 export const customColor = {
   mainColor: '#FF7A00',
   subColor: '#6F6F6F',
-
+  cancelColor: '#FF4040',
   backgroundColor: '#FFFFFF',
 
   lightGraytColor: '#C4C4C4',

@@ -7,7 +7,9 @@ export const ItemBox = ({ data }) => {
     <Link to={{ pathname: '/product/detail', state: data }} style={linkstyle}>
       <Section>
         <ItemIamge>사진</ItemIamge>
-        <ItemName>{data.name}</ItemName>
+        <ItemName>
+          {data.name} {data.volume}ml
+        </ItemName>
         <ItemPrice>{data.price}원</ItemPrice>
       </Section>
     </Link>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { ProductHandleButton } from 'components/index';
 import { ProductDescNav } from './components/index';
@@ -22,12 +22,14 @@ export const ProductDetailPage = (data) => {
           사진
           <ProductImage />
         </ProductImageWrapper>
+
         <ProductInfoWrapper>
           <ProductName>
             {productData.name} {productData.volume}ml
           </ProductName>
-          <ProductInfoList>
-            <ProductInfoBody>
+
+          <ProductInfoTable>
+            <tbody>
               <ProductInfoRow>
                 <ProductInfoTag>도수</ProductInfoTag>
                 <ProductInfoData>{productData.abv}% Vol.</ProductInfoData>
@@ -44,18 +46,25 @@ export const ProductDetailPage = (data) => {
                 <ProductInfoTag>원산지</ProductInfoTag>
                 <ProductInfoData>{productData.poo}</ProductInfoData>
               </ProductInfoRow>
+            </tbody>
+          </ProductInfoTable>
+
+          <ProductPriceTable>
+            <tbody>
               <ProductPriceRow>
                 <ProductPriceTag>판매가</ProductPriceTag>
                 <ProductPriceData>{productData.price}</ProductPriceData>
               </ProductPriceRow>
-            </ProductInfoBody>
-          </ProductInfoList>
+            </tbody>
+          </ProductPriceTable>
+
           <ProductHandleButtonWrapper>
-            <ProductHandleButton />
-            <ProductHandleButton />
+            <ProductHandleButton title={'장바구니 담기'} />
+            <ProductHandleButton title={'구매하기'} />
           </ProductHandleButtonWrapper>
         </ProductInfoWrapper>
       </ProductInfoArticle>
+
       <ProductDescArticle>
         <ProductDescNav />
 
@@ -73,10 +82,11 @@ const ProductInfoArticle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 60px;
+  margin: auto;
   margin-top: 60px;
   margin-bottom: 100px;
-  height: 70vh;
+  width: 90%;
+  height: 500px;
 `;
 const ProductImageWrapper = styled.div`
   width: 50%;
@@ -95,45 +105,47 @@ const ProductInfoWrapper = styled.div`
 const ProductName = styled.div`
   height: 10%;
   font-size: 40px;
-  border-bottom: 2px solid ${customColor.fontMainColor};
+  border-bottom: 3px solid ${customColor.fontMainColor};
 `;
 
-const ProductInfoList = styled.table`
-  margin-top: 10px;
-  margin-bottom: 50px;
+///////////////////////////////////////////////
+const ProductInfoTable = styled.table`
+  margin-top: 7px;
+  height: 35%;
 `;
-const ProductInfoBody = styled.tbody``;
-
 const ProductInfoRow = styled.tr`
-  height: 40px;
   font-size: 20px;
 `;
 const ProductInfoTag = styled.td`
   padding-right: 60px;
   color: ${customColor.fontSubColor};
 `;
-
 const ProductInfoData = styled.td``;
+///////////////////////////////////////////////
+const ProductPriceTable = styled.table`
+  display: table;
+  height: 35%;
+`;
+const ProductPriceRow = styled.tr`
+  font-size: 30px;
+  font-weight: bold;
+`;
+const ProductPriceTag = styled.td`
+  padding-right: 60px;
+  color: ${customColor.fontSubColor};
+  vertical-align: bottom;
+`;
+const ProductPriceData = styled.td`
+  color: ${customColor.mainColor};
 
+  vertical-align: bottom;
+`;
+///////////////////////////////////////////////
 const ProductHandleButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const ProductPriceRow = styled.tr`
-  font-size: 30px;
-
-  font-weight: bold;
-`;
-
-const ProductPriceTag = styled.td`
-  padding-top: 100px;
-  color: ${customColor.fontSubColor};
-`;
-
-const ProductPriceData = styled.td`
-  padding-top: 97px;
-  color: ${customColor.mainColor};
+  align-items: flex-end;
+  height: 18%;
 `;
 
 const ProductDescArticle = styled.div``;
