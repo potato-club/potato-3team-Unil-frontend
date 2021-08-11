@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { IoCartOutline, IoPersonCircleOutline } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { DropDownBox } from './components/Header/DropDownBox';
+
 export const Header = () => {
   return (
     <div>
@@ -22,7 +23,7 @@ export const Header = () => {
             <Link
               to={{
                 pathname: '/product/list',
-                state: { productType: 'All Product' },
+                state: { type: 'All Product' },
               }}
               style={styledLink}>
               ITEM
@@ -36,7 +37,7 @@ export const Header = () => {
             <Link
               to={{
                 pathname: '/faq',
-                state: { productType: '상품후기' },
+                state: { type: '상품후기' },
               }}
               style={styledLink}>
               COMMUNITY

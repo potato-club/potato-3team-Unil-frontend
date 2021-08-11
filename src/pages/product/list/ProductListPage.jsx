@@ -7,15 +7,13 @@ import dummy from 'dummy/item';
 import { PageTitle } from 'components/index';
 
 export const ProductListPage = (props) => {
-  const [productType, setProductType] = useState(
-    props.location.state.productType,
-  );
+  const [productType, setProductType] = useState(props.location.state.type);
   const typeData =
     productType.length < 5
       ? dummy.filter((data) => data.type === productType)
       : dummy;
   const productCount = typeData.length;
-  useEffect(() => setProductType(props.location.state.productType), [props]);
+  useEffect(() => setProductType(props.location.state.type), [props]);
 
   return (
     <div>

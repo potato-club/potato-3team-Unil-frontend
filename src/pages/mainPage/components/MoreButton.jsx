@@ -2,10 +2,16 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { customColor } from 'constants/index';
+
 export const MoreButton = () => {
   return (
     <MoreWrapper>
-      <Link to="/product/list" style={styledLink}>
+      <Link
+        to={{
+          pathname: '/product/list',
+          state: { type: 'All Product' },
+        }}
+        style={styledLink}>
         More
       </Link>
     </MoreWrapper>

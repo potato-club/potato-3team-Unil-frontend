@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 import { Link } from 'react-router-dom';
+
 export const DropDownBox = ({ dataNumber }) => {
   const DropDownItemData = [
     [
@@ -41,7 +42,7 @@ export const DropDownBox = ({ dataNumber }) => {
         <Link
           to={{
             pathname: dataNumber === '0' ? '/product/list' : '/faq',
-            state: { productType: name },
+            state: { type: name },
           }}
           style={styledLink}
           key={id}
