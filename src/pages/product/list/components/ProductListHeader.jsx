@@ -14,17 +14,41 @@ export const ProductListHeader = ({ setType }) => {
     <div>
       <PageTitle pageTitle={titleName}></PageTitle>
       <HeaderNav>
-        <NavItem onClick={() => onClickNav('All Product')}>All</NavItem>
+        <NavItem
+          isActive={titleName === 'All Product' && true}
+          onClick={() => onClickNav('All Product')}>
+          All
+        </NavItem>
         <VerticalLine />
-        <NavItem onClick={() => onClickNav('위스키')}>위스키</NavItem>
+        <NavItem
+          isActive={titleName === '위스키' && true}
+          onClick={() => onClickNav('위스키')}>
+          위스키
+        </NavItem>
         <VerticalLine />
-        <NavItem onClick={() => onClickNav('리큐르')}>리큐르</NavItem>
+        <NavItem
+          isActive={titleName === '리큐르' && true}
+          onClick={() => onClickNav('리큐르')}>
+          리큐르
+        </NavItem>
         <VerticalLine />
-        <NavItem onClick={() => onClickNav('럼')}>럼</NavItem>
+        <NavItem
+          isActive={titleName === '럼' && true}
+          onClick={() => onClickNav('럼')}>
+          럼
+        </NavItem>
         <VerticalLine />
-        <NavItem onClick={() => onClickNav('브랜디')}>브랜디</NavItem>
+        <NavItem
+          isActive={titleName === '브랜디' && true}
+          onClick={() => onClickNav('브랜디')}>
+          브랜디
+        </NavItem>
         <VerticalLine />
-        <NavItem onClick={() => onClickNav('보드카')}>보드카</NavItem>
+        <NavItem
+          isActive={titleName === '보드카' && true}
+          onClick={() => onClickNav('보드카')}>
+          보드카
+        </NavItem>
       </HeaderNav>
     </div>
   );
@@ -51,6 +75,9 @@ const NavItem = styled.div`
     background-color: ${customColor.mainColor};
     color: ${customColor.fontWhiteColor};
   }
+  ${(props) =>
+    props.isActive &&
+    `background-color: ${customColor.mainColor}; color: ${customColor.fontWhiteColor};`}
 `;
 
 const VerticalLine = styled.div`

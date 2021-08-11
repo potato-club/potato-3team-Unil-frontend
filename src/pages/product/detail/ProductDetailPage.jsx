@@ -117,7 +117,7 @@ const ProductInfoRow = styled.tr`
   font-size: 20px;
 `;
 const ProductInfoTag = styled.td`
-  padding-right: 60px;
+  width: 110px;
   color: ${customColor.fontSubColor};
 `;
 const ProductInfoData = styled.td``;
@@ -131,7 +131,7 @@ const ProductPriceRow = styled.tr`
   font-weight: bold;
 `;
 const ProductPriceTag = styled.td`
-  padding-right: 60px;
+  width: 110px;
   color: ${customColor.fontSubColor};
   vertical-align: bottom;
 `;
