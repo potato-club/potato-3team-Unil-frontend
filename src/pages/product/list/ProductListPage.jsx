@@ -1,27 +1,63 @@
-import React, { useState } from 'react';
-import { ProductListHeader } from './components/index';
+import React, { useState, useEffect } from 'react';
 import { customColor } from 'constants/index';
 import styled from '@emotion/styled';
 import { ItemBox } from 'components/index';
 import dummy from 'dummy/item';
 
-export const ProductListPage = () => {
-  const [productType, setProductType] = useState('All Product');
+import { PageTitle } from 'components/index';
 
-  const handleProductType = (type) => {
-    setProductType(type);
-  };
-
+export const ProductListPage = (props) => {
+  const [productType, setProductType] = useState(
+    props.location.state.productType,
+  );
   const typeData =
     productType.length < 5
       ? dummy.filter((data) => data.type === productType)
       : dummy;
   const productCount = typeData.length;
+  useEffect(() => setProductType(props.location.state.productType), [props]);
 
   return (
     <div>
-      <ProductListHeader setType={handleProductType}></ProductListHeader>
+      <PageTitle pageTitle={productType}></PageTitle>
 
+      <HeaderNav>
+        <HeaderNavItem
+          isActive={productType === 'All Product' && true}
+          onClick={() => setProductType('All Product')}>
+          All
+        </HeaderNavItem>
+        <VerticalLine />
+        <HeaderNavItem
+          isActive={productType === '위스키' && true}
+          onClick={() => setProductType('위스키')}>
+          위스키
+        </HeaderNavItem>
+        <VerticalLine />
+        <HeaderNavItem
+          isActive={productType === '리큐르' && true}
+          onClick={() => setProductType('리큐르')}>
+          리큐르
+        </HeaderNavItem>
+        <VerticalLine />
+        <HeaderNavItem
+          isActive={productType === '럼' && true}
+          onClick={() => setProductType('럼')}>
+          럼
+        </HeaderNavItem>
+        <VerticalLine />
+        <HeaderNavItem
+          isActive={productType === '브랜디' && true}
+          onClick={() => setProductType('브랜디')}>
+          브랜디
+        </HeaderNavItem>
+        <VerticalLine />
+        <HeaderNavItem
+          isActive={productType === '보드카' && true}
+          onClick={() => setProductType('보드카')}>
+          보드카
+        </HeaderNavItem>
+      </HeaderNav>
       <Section>
         <Header>
           <TotalNumber>
@@ -60,6 +96,40 @@ const Header = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid ${customColor.subColor};
 `;
+
+const HeaderNav = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 90%;
+  margin: 20px auto;
+  padding: 0;
+  border: 1px solid ${customColor.subColor};
+`;
+const HeaderNavItem = styled.div`
+  margin: 0;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 20px;
+  text-align: center;
+  color: ${customColor.fontSubColor};
+  cursor: pointer;
+  &:hover {
+    background-color: ${customColor.mainColor};
+    color: ${customColor.fontWhiteColor};
+  }
+  ${(props) =>
+    props.isActive &&
+    `background-color: ${customColor.mainColor}; color: ${customColor.fontWhiteColor};`}
+`;
+
+const VerticalLine = styled.div`
+  margin: auto;
+  height: 45px;
+  width: 0px;
+  border-left: 0.1px solid ${customColor.subColor};
+`;
+
 const TotalNumber = styled.p`
   margin: 0;
   padding: 0;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
-
+import { Link } from 'react-router-dom';
 export const DropDownBox = ({ dataNumber }) => {
   const DropDownItemData = [
     [
@@ -32,15 +32,27 @@ export const DropDownBox = ({ dataNumber }) => {
       { id: '3', name: '공지사항' },
     ],
   ];
+  const handleDropDownClick = () => {
+    /*클릭하면 DropDownMenu의 display가 none이 되게 하는 기능*/
+  };
   return (
-    <DropDownList dataNumber={dataNumber}>
+    <DropDownMenu dataNumber={dataNumber}>
       {DropDownItemData[dataNumber].map(({ id, name }) => (
-        <Item key={id}>{name}</Item>
+        <Link
+          to={{
+            pathname: dataNumber === '0' ? '/product/list' : '/faq',
+            state: { productType: name },
+          }}
+          style={styledLink}
+          key={id}
+          onClick={handleDropDownClick}>
+          <Item>{name}</Item>
+        </Link>
       ))}
-    </DropDownList>
+    </DropDownMenu>
   );
 };
-const DropDownList = styled.div`
+const DropDownMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,9 +73,15 @@ const Item = styled.div`
   padding: 5px 0;
   width: 100%;
   font-size: 20px;
+  color: ${customColor.fontMainColor};
   cursor: pointer;
   &:hover {
     background-color: ${customColor.mainColor};
     color: ${customColor.fontWhiteColor};
   }
 `;
+
+const styledLink = {
+  textDecoration: 'none',
+  width: '100%',
+};

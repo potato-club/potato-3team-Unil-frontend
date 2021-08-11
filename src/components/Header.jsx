@@ -19,7 +19,12 @@ export const Header = () => {
             </Link>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link to="/product/list" style={styledLink}>
+            <Link
+              to={{
+                pathname: '/product/list',
+                state: { productType: 'All Product' },
+              }}
+              style={styledLink}>
               ITEM
               <RiArrowDropDownLine style={Icon} />
             </Link>
@@ -28,7 +33,12 @@ export const Header = () => {
             </DropDownWrapper>
           </HeaderNavItem>
           <HeaderNavItem>
-            <Link to="/faq" style={styledLink}>
+            <Link
+              to={{
+                pathname: '/faq',
+                state: { productType: '상품후기' },
+              }}
+              style={styledLink}>
               COMMUNITY
               <RiArrowDropDownLine style={Icon} />
             </Link>
