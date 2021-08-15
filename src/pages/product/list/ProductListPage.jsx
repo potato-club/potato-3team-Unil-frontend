@@ -21,37 +21,37 @@ export const ProductListPage = (props) => {
 
       <HeaderNav>
         <HeaderNavItem
-          isActive={productType === 'All Product' && true}
+          isActive={productType === 'All Product'}
           onClick={() => setProductType('All Product')}>
           All
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '위스키' && true}
+          isActive={productType === '위스키'}
           onClick={() => setProductType('위스키')}>
           위스키
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '리큐르' && true}
+          isActive={productType === '리큐르'}
           onClick={() => setProductType('리큐르')}>
           리큐르
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '럼' && true}
+          isActive={productType === '럼'}
           onClick={() => setProductType('럼')}>
           럼
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '브랜디' && true}
+          isActive={productType === '브랜디'}
           onClick={() => setProductType('브랜디')}>
           브랜디
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '보드카' && true}
+          isActive={productType === '보드카'}
           onClick={() => setProductType('보드카')}>
           보드카
         </HeaderNavItem>

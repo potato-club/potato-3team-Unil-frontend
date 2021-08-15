@@ -60,6 +60,7 @@ export const ProductDetailPage = (data) => {
 
           <ProductHandleButtonWrapper>
             <ProductHandleButton title={'장바구니 담기'} />
+            <Air />
             <ProductHandleButton title={'구매하기'} />
           </ProductHandleButtonWrapper>
         </ProductInfoWrapper>
@@ -149,3 +150,7 @@ const ProductHandleButtonWrapper = styled.div`
 `;
 
 const ProductDescArticle = styled.div``;
+
+const Air = styled.div`
+  width: 5%;
+`;

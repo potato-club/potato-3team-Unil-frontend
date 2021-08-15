@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { customColor } from 'constants/index';
 export const ItemBox = ({ data }) => {
   return (
-    <Link to={{ pathname: '/product/detail', state: data }} style={linkstyle}>
+    <Link to={{ pathname: '/product/detail', state: data }} style={linkStyle}>
       <Section>
-        <ItemIamge>사진</ItemIamge>
+        <ItemImage>사진</ItemImage>
         <ItemName>
           {data.name} {data.volume}ml
         </ItemName>
@@ -15,7 +15,7 @@ export const ItemBox = ({ data }) => {
     </Link>
   );
 };
-const linkstyle = {
+const linkStyle = {
   textDecoration: 'none',
   color: customColor.fontMainColor,
 };
@@ -30,7 +30,7 @@ const Section = styled.div`
   border: 1px solid ${customColor.subColor};
   background-color: ${customColor.backgroundColor};
 `;
-const ItemIamge = styled.div`
+const ItemImage = styled.div`
   margin: 0;
   padding: 0;
   width: 100%;

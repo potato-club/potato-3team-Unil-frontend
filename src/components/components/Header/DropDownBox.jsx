@@ -3,36 +3,37 @@ import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 import { Link } from 'react-router-dom';
 
+const DropDownItemData = [
+  [
+    {
+      id: '1',
+      name: '위스키',
+    },
+    {
+      id: '2',
+      name: '리큐르',
+    },
+    {
+      id: '3',
+      name: '럼',
+    },
+    {
+      id: '4',
+      name: '브랜디',
+    },
+    {
+      id: '5',
+      name: '보드카',
+    },
+  ],
+  [
+    { id: '1', name: '상품후기' },
+    { id: '2', name: '1:1 문의하기' },
+    { id: '3', name: '공지사항' },
+  ],
+];
+
 export const DropDownBox = ({ dataNumber }) => {
-  const DropDownItemData = [
-    [
-      {
-        id: '1',
-        name: '위스키',
-      },
-      {
-        id: '2',
-        name: '리큐르',
-      },
-      {
-        id: '3',
-        name: '럼',
-      },
-      {
-        id: '4',
-        name: '브랜디',
-      },
-      {
-        id: '5',
-        name: '보드카',
-      },
-    ],
-    [
-      { id: '1', name: '상품후기' },
-      { id: '2', name: '1:1 문의하기' },
-      { id: '3', name: '공지사항' },
-    ],
-  ];
   const handleDropDownClick = () => {
     /*클릭하면 DropDownMenu의 display가 none이 되게 하는 기능*/
   };

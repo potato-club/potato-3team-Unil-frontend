@@ -7,7 +7,7 @@ export const ProductHandleButton = ({ title }) => {
 };
 
 const ButtonWrapper = styled.button`
-  width: 49%;
+  width: 100%;
   height: 70px;
   border: 0px;
   font-size: 30px;

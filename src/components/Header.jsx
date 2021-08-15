@@ -50,7 +50,7 @@ export const Header = () => {
         </HeaderNav>
         <HeaderNav>
           <HeaderIconItem>
-            <Link to="/order">
+            <Link to="/cart">
               <IoCartOutline style={Icon} />
             </Link>
           </HeaderIconItem>

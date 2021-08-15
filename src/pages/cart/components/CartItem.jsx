@@ -1,0 +1,117 @@
+import React from 'react';
+import styled from '@emotion/styled';
+import { customColor } from 'constants/index';
+import { ProductHandleButton } from 'components';
+
+export const CartItem = () => {
+  return (
+    <ItemWrapper>
+      <ItemInfoWrapper>
+        <ItemNumber>1</ItemNumber>
+        <ItemImage>사진</ItemImage>
+        <ItemDescWrapper>
+          <ItemName>그대의 냠냠냠에게 건배</ItemName>
+          <ItemDownData>
+            <ItemCountWrapper>
+              <ItemCountTag>개수</ItemCountTag>
+              <ItemCount>1</ItemCount>
+            </ItemCountWrapper>
+            <ItemPriceWrapper>
+              <ItemPriceTag>총 가격</ItemPriceTag>
+              <ItemPrice>15,000</ItemPrice>
+            </ItemPriceWrapper>
+          </ItemDownData>
+        </ItemDescWrapper>
+      </ItemInfoWrapper>
+      <ProductHandleButtonWrapper>
+        <ProductHandleButton title={'취소하기'} />
+        <ProductHandleButton title={'구매하기'} />
+      </ProductHandleButtonWrapper>
+    </ItemWrapper>
+  );
+};
+
+const ItemWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 170px;
+  padding: 30px 0;
+  border-bottom: 1px solid ${customColor.lightGraytColor};
+`;
+const ItemInfoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
+const ItemNumber = styled.div`
+  margin-right: 30px;
+  font-size: 25px;
+  color: ${customColor.fontSubColor};
+`;
+const ItemImage = styled.div`
+  width: 200px;
+  height: 100%;
+
+  background-color: ${customColor.mainColor};
+`;
+
+const ItemDescWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  margin-left: 30px;
+`;
+const ItemName = styled.div`
+  display: flex;
+  font-size: 30px;
+`;
+
+const ItemDownData = styled.div`
+  font-weight: bold;
+  width: 230px;
+`;
+const ItemCountWrapper = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+  font-size: 20px;
+  width: 100%;
+`;
+
+const ItemCountTag = styled.div`
+  width: 50%;
+  color: ${customColor.fontSubColor};
+`;
+const ItemCount = styled.div`
+  width: 50%;
+  color: ${customColor.mainColor};
+`;
+
+const ItemPriceWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  font-size: 25px;
+`;
+const ItemPriceTag = styled.div`
+  width: 50%;
+  color: ${customColor.fontSubColor};
+`;
+const ItemPrice = styled.div`
+  width: 50%;
+  color: ${customColor.mainColor};
+`;
+
+const ProductHandleButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
+
+  width: 23%;
+  height: 100%;
+  margin-right: 20px;
+`;
