@@ -36,7 +36,7 @@ export const Header = () => {
           <HeaderNavItem>
             <Link
               to={{
-                pathname: '/faq',
+                pathname: '/faq/review',
                 state: { type: '상품후기' },
               }}
               style={styledLink}>

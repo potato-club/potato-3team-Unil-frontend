@@ -6,6 +6,7 @@ import {
   ProductListPage,
   ProductDetailPage,
   CartPage,
+  FaqPage,
 } from 'pages/index';
 import ScrollToTop from 'ScrollToTop';
 const Root = () => {
@@ -17,6 +18,8 @@ const Root = () => {
         <Route path="/product/list" component={ProductListPage} />
         <Route path="/product/detail" component={ProductDetailPage} />
         <Route path="/cart" component={CartPage} />
+
+        <Route path="/faq/:id" component={FaqPage} />
       </ScrollToTop>
     </BrowserRouter>
   );

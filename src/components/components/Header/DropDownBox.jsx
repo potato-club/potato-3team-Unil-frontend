@@ -27,9 +27,9 @@ const DropDownItemData = [
     },
   ],
   [
-    { id: '1', name: '상품후기' },
-    { id: '2', name: '1:1 문의하기' },
-    { id: '3', name: '공지사항' },
+    { id: '1', name: '상품후기', path: 'review' },
+    { id: '2', name: '1:1 문의하기', path: 'contactUs' },
+    { id: '3', name: '공지사항', path: 'notice' },
   ],
 ];
 
@@ -39,10 +39,10 @@ export const DropDownBox = ({ dataNumber }) => {
   };
   return (
     <DropDownMenu dataNumber={dataNumber}>
-      {DropDownItemData[dataNumber].map(({ id, name }) => (
+      {DropDownItemData[dataNumber].map(({ id, name, path }) => (
         <Link
           to={{
-            pathname: dataNumber === '0' ? '/product/list' : '/faq',
+            pathname: dataNumber === '0' ? '/product/list' : `/faq/${path}`,
             state: { type: name },
           }}
           style={styledLink}
