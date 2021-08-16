@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import { ProductHandleButton } from 'components/index';
 import { ProductDescNav } from './components/index';
 import { customColor } from 'constants/index';
 
 export const ProductDetailPage = (data) => {
-  //이 컴포넌트 안에서는 ProductData의 데이터가 바뀔일이 없는데 useState를 써야하나?
-  const productData = {
+  const productData = useRef({
     name: data.location.state.name,
     type: data.location.state.type,
     price: data.location.state.price,
     abv: data.location.state.abv,
     volume: data.location.state.volume,
     poo: data.location.state.poo,
-  };
-
+  });
   return (
     <Section>
       <ProductInfoArticle>
@@ -25,26 +23,30 @@ export const ProductDetailPage = (data) => {
 
         <ProductInfoWrapper>
           <ProductName>
-            {productData.name} {productData.volume}ml
+            {productData.current.name} {productData.current.volume}ml
           </ProductName>
 
           <ProductInfoTable>
             <tbody>
               <ProductInfoRow>
                 <ProductInfoTag>도수</ProductInfoTag>
-                <ProductInfoData>{productData.abv}% Vol.</ProductInfoData>
+                <ProductInfoData>
+                  {productData.current.abv}% Vol.
+                </ProductInfoData>
               </ProductInfoRow>
               <ProductInfoRow>
                 <ProductInfoTag>종류</ProductInfoTag>
-                <ProductInfoData>{productData.type}</ProductInfoData>
+                <ProductInfoData>{productData.current.type}</ProductInfoData>
               </ProductInfoRow>
               <ProductInfoRow>
                 <ProductInfoTag>용량</ProductInfoTag>
-                <ProductInfoData>{productData.volume}ml</ProductInfoData>
+                <ProductInfoData>
+                  {productData.current.volume}ml
+                </ProductInfoData>
               </ProductInfoRow>
               <ProductInfoRow>
                 <ProductInfoTag>원산지</ProductInfoTag>
-                <ProductInfoData>{productData.poo}</ProductInfoData>
+                <ProductInfoData>{productData.current.poo}</ProductInfoData>
               </ProductInfoRow>
             </tbody>
           </ProductInfoTable>
@@ -53,7 +55,7 @@ export const ProductDetailPage = (data) => {
             <tbody>
               <ProductPriceRow>
                 <ProductPriceTag>판매가</ProductPriceTag>
-                <ProductPriceData>{productData.price}</ProductPriceData>
+                <ProductPriceData>{productData.current.price}</ProductPriceData>
               </ProductPriceRow>
             </tbody>
           </ProductPriceTable>

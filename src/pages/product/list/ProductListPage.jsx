@@ -8,50 +8,57 @@ import { PageTitle } from 'components/index';
 
 export const ProductListPage = (props) => {
   const [productType, setProductType] = useState(props.location.state.type);
-  const typeData =
-    productType.length < 5
-      ? dummy.filter((data) => data.type === productType)
-      : dummy;
-  const productCount = typeData.length;
-  useEffect(() => setProductType(props.location.state.type), [props]);
+  const [typeData, setTypeData] = useState([]);
+  const [productCount, setProductCount] = useState(0);
 
+  useEffect(() => setProductType(props.location.state.type), [props]);
+  useEffect(
+    () =>
+      setTypeData(
+        productType.length < 5
+          ? dummy.filter((data) => data.type === productType)
+          : dummy,
+      ),
+    [productType],
+  );
+  useEffect(() => setProductCount(typeData.length), [typeData]);
   return (
     <div>
-      <PageTitle pageTitle={productType}></PageTitle>
+      <PageTitle pageTitle={[productType]}></PageTitle>
 
       <HeaderNav>
         <HeaderNavItem
-          isActive={productType === 'All Product'}
+          isActive={[productType][0] === 'All Product'}
           onClick={() => setProductType('All Product')}>
           All
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '위스키'}
+          isActive={[productType][0] === '위스키'}
           onClick={() => setProductType('위스키')}>
           위스키
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '리큐르'}
+          isActive={[productType][0] === '리큐르'}
           onClick={() => setProductType('리큐르')}>
           리큐르
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '럼'}
+          isActive={[productType][0] === '럼'}
           onClick={() => setProductType('럼')}>
           럼
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '브랜디'}
+          isActive={[productType][0] === '브랜디'}
           onClick={() => setProductType('브랜디')}>
           브랜디
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={productType === '보드카'}
+          isActive={[productType][0] === '보드카'}
           onClick={() => setProductType('보드카')}>
           보드카
         </HeaderNavItem>
@@ -59,7 +66,7 @@ export const ProductListPage = (props) => {
       <Section>
         <Header>
           <TotalNumber>
-            전체상품 <ProductCount>{productCount} </ProductCount>개
+            전체상품 <ProductCount>{[productCount]} </ProductCount>개
           </TotalNumber>
           <SortListNav>
             <NavItem>판매인기순</NavItem>
@@ -69,7 +76,7 @@ export const ProductListPage = (props) => {
           </SortListNav>
         </Header>
         <Article>
-          {typeData.map((data) => (
+          {[typeData][0].map((data) => (
             <ItemBoxWrapper key={data.id}>
               <ItemBox data={data} />
             </ItemBoxWrapper>
