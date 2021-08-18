@@ -13,6 +13,7 @@ export const ContactUs = () => {
         <Writer>아앗</Writer>
         <Date>2020.08.99</Date>
       </Wrapper>
+      <MoreWrapper>문의하기</MoreWrapper>
     </Section>
   );
 };
@@ -52,3 +53,25 @@ const Date = styled.div`
   justify-content: center;
   width: 15%;
 `;
+
+const MoreWrapper = styled.button`
+  display: block;
+  position: relative;
+  justify-content: flex-end;
+  width: 100px;
+  height: 35px;
+  border: 0;
+  padding: 0;
+  margin: 10px auto;
+  margin-right: 0;
+  color: ${customColor.fontWhiteColor};
+  background-color: ${customColor.mainColor};
+`;
+
+// const styledLink = {
+//   display: 'block',
+//   textDecoration: 'none',
+//   color: customColor.fontWhiteColor,
+//   fontSize: '14px',
+//   lineHeight: '35px',
+// };

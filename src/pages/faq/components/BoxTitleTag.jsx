@@ -10,7 +10,6 @@ export const BoxTitleTag = ({ title }) => {
     4: '작성자',
     5: null,
   });
-
   useEffect(() => {
     switch (title.toString()) {
       case 'review':

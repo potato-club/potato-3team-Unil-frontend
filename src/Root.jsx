@@ -7,6 +7,7 @@ import {
   ProductDetailPage,
   CartPage,
   FaqPage,
+  memberPage,
 } from 'pages/index';
 import ScrollToTop from 'ScrollToTop';
 const Root = () => {
@@ -20,6 +21,7 @@ const Root = () => {
         <Route path="/cart" component={CartPage} />
 
         <Route path="/faq/:id" component={FaqPage} />
+        <Route path="/member" component={memberPage} />
       </ScrollToTop>
     </BrowserRouter>
   );
