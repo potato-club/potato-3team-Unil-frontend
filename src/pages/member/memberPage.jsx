@@ -3,8 +3,13 @@ import styled from '@emotion/styled';
 import { PageTitle } from 'components/index';
 export const memberPage = () => {
   return (
-    <div>
+    <Main>
       <PageTitle pageTitle={'LOGIN'}></PageTitle>
-    </div>
+    </Main>
   );
 };
+
+const Main = styled.div`
+  width: 90%;
+  margin: auto;
+`;

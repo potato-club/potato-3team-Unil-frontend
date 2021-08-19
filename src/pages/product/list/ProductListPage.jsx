@@ -1,65 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import { customColor } from 'constants/index';
 import styled from '@emotion/styled';
-import { ItemBox } from 'components/index';
+import { ItemBox, Pagination } from 'components/index';
 import dummy from 'dummy/item';
-
 import { PageTitle } from 'components/index';
 
 export const ProductListPage = (props) => {
   const [productType, setProductType] = useState(props.location.state.type);
-  const [typeData, setTypeData] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [productCount, setProductCount] = useState(0);
-
-  useEffect(() => setProductType(props.location.state.type), [props]);
-  useEffect(
-    () =>
-      setTypeData(
-        productType.length < 5
-          ? dummy.filter((data) => data.type === productType)
-          : dummy,
-      ),
-    [productType],
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 3;
+  const [currentPosts, setCurrentPosts] = useState(
+    posts.slice(
+      currentPage * postsPerPage - postsPerPage,
+      currentPage * postsPerPage,
+    ),
   );
-  useEffect(() => setProductCount(typeData.length), [typeData]);
+
+  useEffect(() => {
+    setProductType(props.location.state.type);
+    setPosts(
+      props.location.state.type.length < 5
+        ? dummy.filter((data) => data.type === props.location.state.type)
+        : dummy,
+    );
+  }, [props]);
+
+  useEffect(() => {
+    setProductCount(posts.length);
+    setCurrentPage(1);
+    setCurrentPosts(posts.slice(0, postsPerPage));
+  }, [posts]);
+
+  const onClickNavItem = (title) => {
+    setProductType(title);
+    setPosts(
+      title.length < 5 ? dummy.filter((data) => data.type === title) : dummy,
+    );
+  };
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    setCurrentPosts(
+      posts.slice(
+        pageNumber * postsPerPage - postsPerPage,
+        pageNumber * postsPerPage,
+      ),
+    );
+  };
   return (
-    <div>
+    <Main>
       <PageTitle pageTitle={[productType]}></PageTitle>
 
       <HeaderNav>
         <HeaderNavItem
           isActive={[productType][0] === 'All Product'}
-          onClick={() => setProductType('All Product')}>
+          onClick={() => onClickNavItem('All Product')}>
           All
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
           isActive={[productType][0] === '위스키'}
-          onClick={() => setProductType('위스키')}>
+          onClick={() => onClickNavItem('위스키')}>
           위스키
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
           isActive={[productType][0] === '리큐르'}
-          onClick={() => setProductType('리큐르')}>
+          onClick={() => onClickNavItem('리큐르')}>
           리큐르
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
           isActive={[productType][0] === '럼'}
-          onClick={() => setProductType('럼')}>
+          onClick={() => onClickNavItem('럼')}>
           럼
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
           isActive={[productType][0] === '브랜디'}
-          onClick={() => setProductType('브랜디')}>
+          onClick={() => onClickNavItem('브랜디')}>
           브랜디
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
           isActive={[productType][0] === '보드카'}
-          onClick={() => setProductType('보드카')}>
+          onClick={() => onClickNavItem('보드카')}>
           보드카
         </HeaderNavItem>
       </HeaderNav>
@@ -76,20 +103,28 @@ export const ProductListPage = (props) => {
           </SortListNav>
         </Header>
         <Article>
-          {[typeData][0].map((data) => (
+          {currentPosts.map((data) => (
             <ItemBoxWrapper key={data.id}>
               <ItemBox data={data} />
             </ItemBoxWrapper>
           ))}
         </Article>
+
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          paginate={paginate}
+          currentPage={currentPage}></Pagination>
       </Section>
-    </div>
+    </Main>
   );
 };
-
-const Section = styled.div`
+const Main = styled.div`
   width: 90%;
   margin: auto;
+  height: 150vh;
+`;
+const Section = styled.div`
   margin-top: 50px;
 `;
 
@@ -106,7 +141,7 @@ const HeaderNav = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
   padding: 0;
   border: 1px solid ${customColor.subColor};
