@@ -10,6 +10,7 @@ export const ProductListPage = (props) => {
   const [posts, setPosts] = useState([]);
   const [productCount, setProductCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  //테스트를 위해 일부러 3을 지정, 나중에 수정예정
   const postsPerPage = 3;
   const [currentPosts, setCurrentPosts] = useState(
     posts.slice(
@@ -132,7 +133,7 @@ const Header = styled.div`
   display: flex;
   margin: 0;
   margin-bottom: 20px;
-  padding: 10px 0;
+  padding: 5px 0;
   justify-content: space-between;
   border-bottom: 1px solid ${customColor.subColor};
 `;
