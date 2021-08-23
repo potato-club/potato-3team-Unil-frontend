@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 
@@ -8,10 +8,15 @@ export const Pagination = ({
   paginate,
   currentPage,
 }) => {
-  const pageNumber = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); ++i) {
-    pageNumber.push(i);
-  }
+  const [pageNumber, setPageNumber] = useState([]);
+
+  useEffect(() => {
+    setPageNumber([]);
+    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); ++i) {
+      setPageNumber((pageNumber) => [...pageNumber, i]);
+    }
+  }, [totalPosts, postsPerPage]);
+
   return (
     <PageList>
       {pageNumber.map((number) => (
@@ -25,6 +30,7 @@ export const Pagination = ({
     </PageList>
   );
 };
+
 const PageList = styled.div`
   display: flex;
   justify-content: center;
@@ -35,12 +41,12 @@ const Page = styled.div`
   padding: 3px 10px;
   margin: 0 5px;
   font-size: 20px;
-  color: ${customColor.subColor};
-  background-color: ${customColor.fontWhiteColor};
-  border: 1px solid ${customColor.mainColor};
+  color: ${customColor.sub};
+  background-color: ${customColor.fontWhite};
+  border: 1px solid ${customColor.main};
   cursor: pointer;
   ${(props) =>
     props.isActive &&
-    `background-color: ${customColor.mainColor}; 
-  color: ${customColor.fontWhiteColor};`};
+    `background-color: ${customColor.main}; 
+  color: ${customColor.fontWhite};`};
 `;

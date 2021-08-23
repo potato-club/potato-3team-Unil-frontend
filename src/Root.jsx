@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Header } from 'components/index';
+import ScrollToTop from 'components/ScrollToTop';
 import {
   MainPage,
   ProductListPage,
@@ -9,7 +10,6 @@ import {
   FaqPage,
   memberPage,
 } from 'pages/index';
-import ScrollToTop from 'ScrollToTop';
 const Root = () => {
   return (
     <BrowserRouter>

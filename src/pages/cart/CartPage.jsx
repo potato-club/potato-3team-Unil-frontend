@@ -50,7 +50,7 @@ const CartListWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
-  border-top: 1px solid ${customColor.fontMainColor};
+  border-top: 1px solid ${customColor.fontmain};
   width: 100%;
 `;
 
@@ -58,7 +58,7 @@ const CalCulateSection = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
-  border: 1px solid ${customColor.subColor};
+  border: 1px solid ${customColor.sub};
 `;
 
 const CalCulateArticle = styled.div`
@@ -74,7 +74,7 @@ const calculateIconStyle = {
   padding: '0',
   margin: '0',
   cursor: 'pointer',
-  color: customColor.fontMainColor,
+  color: customColor.fontmain,
 };
 
 const ProductAllPriceWrapper = styled.div`
@@ -89,7 +89,7 @@ const ProductAllPriceTag = styled.div`
 const ProductAllPrice = styled.div`
   font-weight: bold;
   font-size: 25px;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const DeliveryFeeWrapper = styled.div`
@@ -104,7 +104,7 @@ const DeliveryFeeTag = styled.div`
 const DeliveryFee = styled.div`
   font-weight: bold;
   font-size: 25px;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const ResultWrapper = styled.div`
@@ -119,7 +119,7 @@ const ResultTag = styled.div`
 const Result = styled.div`
   font-weight: bold;
   font-size: 25px;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const ProductHandleButtonWrapper = styled.div`

@@ -49,8 +49,8 @@ export const BoxTitleTag = ({ title }) => {
 const TagWrapper = styled.div`
   display: flex;
   align-items: center;
-  border-top: 2px solid ${customColor.fontMainColor};
-  border-bottom: 1px solid ${customColor.fontMainColor};
+  border-top: 2px solid ${customColor.fontmain};
+  border-bottom: 1px solid ${customColor.fontmain};
   font-weight: bold;
   padding: 7px 0;
 `;

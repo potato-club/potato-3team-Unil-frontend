@@ -4,7 +4,37 @@ import { customColor } from 'constants/index';
 import { Link } from 'react-router-dom';
 import { IoCartOutline, IoPersonCircleOutline } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import { DropDownBox } from './components/Header/DropDownBox';
+import { DropDownBox } from './DropDownBox';
+
+const DropDownItemData = [
+  [
+    {
+      id: '1',
+      name: '위스키',
+    },
+    {
+      id: '2',
+      name: '리큐르',
+    },
+    {
+      id: '3',
+      name: '럼',
+    },
+    {
+      id: '4',
+      name: '브랜디',
+    },
+    {
+      id: '5',
+      name: '보드카',
+    },
+  ],
+  [
+    { id: '1', name: '상품후기', path: 'review' },
+    { id: '2', name: '1:1 문의하기', path: 'contactUs' },
+    { id: '3', name: '공지사항', path: 'notice' },
+  ],
+];
 
 export const Header = () => {
   return (
@@ -30,7 +60,7 @@ export const Header = () => {
               <RiArrowDropDownLine style={Icon} />
             </Link>
             <DropDownWrapper>
-              <DropDownBox dataNumber={'0'} />
+              <DropDownBox data={DropDownItemData[0]} />
             </DropDownWrapper>
           </HeaderNavItem>
           <HeaderNavItem>
@@ -44,7 +74,7 @@ export const Header = () => {
               <RiArrowDropDownLine style={Icon} />
             </Link>
             <DropDownWrapper>
-              <DropDownBox dataNumber={'1'} />
+              <DropDownBox data={DropDownItemData[1]} />
             </DropDownWrapper>
           </HeaderNavItem>
         </HeaderNav>
@@ -76,7 +106,7 @@ const HeaderSection = styled.div`
 
 const Title = styled.p`
   font-size: 30px;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
   font-weight: bold;
   padding: 0;
   margin: 0;
@@ -118,7 +148,7 @@ const styledLink = {
   textDecoration: 'none',
   height: '30px',
   lineHeight: '30px',
-  color: customColor.fontMainColor,
+  color: customColor.fontmain,
   fontSize: '20px',
 };
 
@@ -128,14 +158,14 @@ const Icon = {
   padding: '0',
   margin: '0',
   cursor: 'pointer',
-  color: customColor.fontMainColor,
+  color: customColor.fontmain,
 };
 
 const HeaderBottomLine = styled.div`
   width: 100%;
   text-align: center;
   border-bottom: 1px solid;
-  border-bottom-color: ${customColor.subColor};
+  border-bottom-color: ${customColor.sub};
   line-height: 0.1em;
   margin: 0;
 `;

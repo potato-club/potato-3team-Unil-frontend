@@ -21,7 +21,7 @@ const Section = styled.div``;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${customColor.subColor};
+  border-bottom: 1px solid ${customColor.sub};
   padding: 7px 0;
   height: 30px;
 `;
