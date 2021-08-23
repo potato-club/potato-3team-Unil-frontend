@@ -6,10 +6,10 @@ import { AllReview, Notice, ContactUs } from './components/index';
 export const FaqPage = (props) => {
   return (
     <Section>
-      <PageTitle pageTitle={props.location.state.type}></PageTitle>
-      {props.match.params.id === 'review' && <AllReview></AllReview>}
-      {props.match.params.id === 'contactUs' && <ContactUs></ContactUs>}
-      {props.match.params.id === 'notice' && <Notice></Notice>}
+      <PageTitle pageTitle={props.location.state.type} />
+      {props.match.params.id === 'review' && <AllReview />}
+      {props.match.params.id === 'contactUs' && <ContactUs />}
+      {props.match.params.id === 'notice' && <Notice />}
     </Section>
   );
 };

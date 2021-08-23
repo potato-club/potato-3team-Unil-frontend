@@ -38,7 +38,7 @@ const ItemWrapper = styled.div`
   width: 100%;
   height: 170px;
   padding: 30px 0;
-  border-bottom: 1px solid ${customColor.lightGraytColor};
+  border-bottom: 1px solid ${customColor.lightGray};
 `;
 const ItemInfoWrapper = styled.div`
   display: flex;
@@ -49,13 +49,13 @@ const ItemInfoWrapper = styled.div`
 const ItemNumber = styled.div`
   margin-right: 30px;
   font-size: 25px;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
 `;
 const ItemImage = styled.div`
   width: 200px;
   height: 100%;
 
-  background-color: ${customColor.mainColor};
+  background-color: ${customColor.main};
 `;
 
 const ItemDescWrapper = styled.div`
@@ -84,11 +84,11 @@ const ItemCountWrapper = styled.div`
 
 const ItemCountTag = styled.div`
   width: 50%;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
 `;
 const ItemCount = styled.div`
   width: 50%;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const ItemPriceWrapper = styled.div`
@@ -98,11 +98,11 @@ const ItemPriceWrapper = styled.div`
 `;
 const ItemPriceTag = styled.div`
   width: 50%;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
 `;
 const ItemPrice = styled.div`
   width: 50%;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const ProductHandleButtonWrapper = styled.div`

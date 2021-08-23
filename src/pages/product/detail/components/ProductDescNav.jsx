@@ -21,7 +21,7 @@ const Article = styled.div`
   width: 90%;
   margin: 20px auto;
   padding: 0;
-  border: 1px solid ${customColor.subColor};
+  border: 1px solid ${customColor.sub};
 `;
 const NavItem = styled.div`
   margin: 0;
@@ -29,7 +29,7 @@ const NavItem = styled.div`
   padding: 15px 20px;
   font-size: 20px;
   text-align: center;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
   cursor: pointer;
 `;
 
@@ -37,5 +37,5 @@ const VerticalLine = styled.div`
   margin: auto;
   height: 45px;
   width: 0px;
-  border-left: 0.1px solid ${customColor.subColor};
+  border-left: 0.1px solid ${customColor.sub};
 `;

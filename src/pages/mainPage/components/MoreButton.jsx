@@ -26,13 +26,13 @@ const MoreWrapper = styled.button`
   border: 0;
   padding: 0;
   margin: 0;
-  background-color: ${customColor.mainColor};
+  background-color: ${customColor.main};
 `;
 
 const styledLink = {
   display: 'block',
   textDecoration: 'none',
-  color: customColor.fontWhiteColor,
+  color: customColor.fontWhite,
   fontSize: '14px',
   lineHeight: '35px',
 };

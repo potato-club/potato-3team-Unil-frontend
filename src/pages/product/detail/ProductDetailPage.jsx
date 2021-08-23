@@ -97,7 +97,7 @@ const ProductImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${customColor.mainColor};
+  background-color: ${customColor.main};
 `;
 const ProductImage = styled.img``;
 const ProductInfoWrapper = styled.div`
@@ -108,7 +108,7 @@ const ProductInfoWrapper = styled.div`
 const ProductName = styled.div`
   height: 10%;
   font-size: 40px;
-  border-bottom: 3px solid ${customColor.fontMainColor};
+  border-bottom: 3px solid ${customColor.fontmain};
 `;
 
 ///////////////////////////////////////////////
@@ -121,7 +121,7 @@ const ProductInfoRow = styled.tr`
 `;
 const ProductInfoTag = styled.td`
   width: 110px;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
 `;
 const ProductInfoData = styled.td``;
 ///////////////////////////////////////////////
@@ -135,11 +135,11 @@ const ProductPriceRow = styled.tr`
 `;
 const ProductPriceTag = styled.td`
   width: 110px;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
   vertical-align: bottom;
 `;
 const ProductPriceData = styled.td`
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 
   vertical-align: bottom;
 `;

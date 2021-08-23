@@ -23,7 +23,7 @@ const Section = styled.div``;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid ${customColor.subColor};
+  border-bottom: 1px solid ${customColor.sub};
   padding: 7px 0;
   height: 30px;
 `;
@@ -64,14 +64,14 @@ const MoreWrapper = styled.button`
   padding: 0;
   margin: 10px auto;
   margin-right: 0;
-  color: ${customColor.fontWhiteColor};
-  background-color: ${customColor.mainColor};
+  color: ${customColor.fontWhite};
+  background-color: ${customColor.main};
 `;
 
 // const styledLink = {
 //   display: 'block',
 //   textDecoration: 'none',
-//   color: customColor.fontWhiteColor,
+//   color: customColor.fontWhite,
 //   fontSize: '14px',
 //   lineHeight: '35px',
 // };

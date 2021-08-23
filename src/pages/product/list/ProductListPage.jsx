@@ -135,7 +135,7 @@ const Header = styled.div`
   margin-bottom: 20px;
   padding: 5px 0;
   justify-content: space-between;
-  border-bottom: 1px solid ${customColor.subColor};
+  border-bottom: 1px solid ${customColor.sub};
 `;
 
 const HeaderNav = styled.div`
@@ -145,7 +145,7 @@ const HeaderNav = styled.div`
   width: 100%;
   margin: 20px auto;
   padding: 0;
-  border: 1px solid ${customColor.subColor};
+  border: 1px solid ${customColor.sub};
 `;
 const HeaderNavItem = styled.div`
   margin: 0;
@@ -153,22 +153,22 @@ const HeaderNavItem = styled.div`
   padding: 15px 20px;
   font-size: 20px;
   text-align: center;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
   cursor: pointer;
   &:hover {
-    background-color: ${customColor.mainColor};
-    color: ${customColor.fontWhiteColor};
+    background-color: ${customColor.main};
+    color: ${customColor.fontWhite};
   }
   ${(props) =>
     props.isActive &&
-    `background-color: ${customColor.mainColor}; color: ${customColor.fontWhiteColor};`}
+    `background-color: ${customColor.main}; color: ${customColor.fontWhite};`}
 `;
 
 const VerticalLine = styled.div`
   margin: auto;
   height: 45px;
   width: 0px;
-  border-left: 0.1px solid ${customColor.subColor};
+  border-left: 0.1px solid ${customColor.sub};
 `;
 
 const TotalNumber = styled.p`
@@ -178,7 +178,7 @@ const TotalNumber = styled.p`
 `;
 const ProductCount = styled.span`
   font-weight: bold;
-  color: ${customColor.mainColor};
+  color: ${customColor.main};
 `;
 
 const SortListNav = styled.ul`
@@ -192,7 +192,7 @@ const NavItem = styled.li`
   margin: 0;
   padding: 0;
   margin-left: 40px;
-  color: ${customColor.fontSubColor};
+  color: ${customColor.fontsub};
   cursor: pointer;
 `;
 

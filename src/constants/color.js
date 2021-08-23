@@ -1,12 +1,12 @@
 export const customColor = {
-  mainColor: '#FF7A00',
-  subColor: '#6F6F6F',
-  cancelColor: '#FF4040',
-  backgroundColor: '#FFFFFF',
+  main: '#FF7A00',
+  sub: '#6F6F6F',
+  cancel: '#FF4040',
+  background: '#FFFFFF',
 
-  lightGraytColor: '#C4C4C4',
+  lightGray: '#C4C4C4',
 
-  fontMainColor: '#000000',
-  fontSubColor: '#6F6F6F',
-  fontWhiteColor: '#FFFFFF',
+  fontmain: '#000000',
+  fontsub: '#6F6F6F',
+  fontWhite: '#FFFFFF',
 };

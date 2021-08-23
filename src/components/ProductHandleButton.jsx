@@ -11,14 +11,14 @@ const ButtonWrapper = styled.button`
   height: 70px;
   border: 0px;
   font-size: 30px;
-  color: ${customColor.fontWhiteColor};
-  background-color: ${customColor.mainColor};
+  color: ${customColor.fontWhite};
+  background-color: ${customColor.main};
   cursor: pointer;
   ${(props) =>
     props.children === '장바구니 담기' &&
-    `background-color: ${customColor.subColor};`};
+    `background-color: ${customColor.sub};`};
 
   ${(props) =>
     props.children === '취소하기' &&
-    `background-color: ${customColor.cancelColor};`};
+    `background-color: ${customColor.cancel};`};
 `;
