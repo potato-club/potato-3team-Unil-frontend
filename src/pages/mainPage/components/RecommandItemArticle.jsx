@@ -5,8 +5,9 @@ import { ItemBox } from 'components/index';
 import { MoreButton } from './index';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { customColor } from 'constants/index';
+
 export const RecommandItemArticle = ({ title }) => {
-  const [posts] = useState(dummy);
+  const [posts] = useState(dummy.slice(0, 12));
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
   const [currentPosts, setCurrentPosts] = useState(
