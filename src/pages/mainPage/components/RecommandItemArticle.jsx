@@ -7,6 +7,8 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { customColor } from 'constants/index';
 
 export const RecommandItemArticle = ({ title }) => {
+  //Today's Items 는 고려하지 않고 일단 상위 12개만 출력하도록 설정
+  //Today's Items 와 Popular Items의 선정법 고민필요
   const [posts] = useState(dummy.slice(0, 12));
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
