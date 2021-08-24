@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import dummy from 'dummy/item';
 import { ItemBox } from 'components/index';
 import { MoreButton } from './index';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-
+import { customColor } from 'constants/index';
 export const RecommandItemArticle = ({ title }) => {
-  //mainPage에 최대 4개까지 출력할 수 있게 임시로 만든 기능
-  const maxItem = dummy.filter((data) => {
-    return data.id <= 4;
-  });
+  const [posts] = useState(dummy);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 4;
+  const [currentPosts, setCurrentPosts] = useState(
+    posts.slice(
+      currentPage * postsPerPage - postsPerPage,
+      currentPage * postsPerPage,
+    ),
+  );
+
+  useEffect(
+    () =>
+      setCurrentPosts(
+        posts.slice(
+          currentPage * postsPerPage - postsPerPage,
+          currentPage * postsPerPage,
+        ),
+      ),
+    [currentPage, posts],
+  );
+
+  const pageNative = (data) => {
+    data === 'next'
+      ? currentPage !== Math.ceil(posts.length / postsPerPage) &&
+        setCurrentPage((currentPage) => currentPage + 1)
+      : currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
+  };
 
   return (
     <Article>
@@ -25,16 +48,21 @@ export const RecommandItemArticle = ({ title }) => {
         )}
       </TitleWrapper>
       <ItemListWrapper>
-        <FiChevronLeft style={NextButton} />
+        <FiChevronLeft style={NextButton} onClick={() => pageNative('prev')} />
         <ItemList>
-          {maxItem.map((data) => (
+          {currentPosts.map((data) => (
             <ItemBoxWrapper key={data.id}>
               <ItemBox data={data} />
             </ItemBoxWrapper>
           ))}
         </ItemList>
-        <FiChevronRight style={NextButton} />
+        <FiChevronRight style={NextButton} onClick={() => pageNative('next')} />
       </ItemListWrapper>
+      <PageWrapper>
+        {[...Array(Math.ceil(posts.length / postsPerPage))].map((e, i) => (
+          <Page key={i} isActive={i + 1 === currentPage} />
+        ))}
+      </PageWrapper>
     </Article>
   );
 };
@@ -92,4 +120,21 @@ const NextButton = {
   width: '40px',
   height: '40px',
   cursor: 'pointer',
+  color: customColor.sub,
 };
+
+const PageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const Page = styled.div`
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  background-color: ${(props) =>
+    props.isActive ? customColor.main : customColor.lightGray};
+  border-radius: 50%;
+`;
