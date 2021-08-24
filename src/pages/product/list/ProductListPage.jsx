@@ -11,7 +11,7 @@ export const ProductListPage = (props) => {
   const [productCount, setProductCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   //테스트를 위해 일부러 3을 지정, 나중에 수정예정
-  const postsPerPage = 3;
+  const postsPerPage = 5;
   const [currentPosts, setCurrentPosts] = useState(
     posts.slice(
       currentPage * postsPerPage - postsPerPage,
