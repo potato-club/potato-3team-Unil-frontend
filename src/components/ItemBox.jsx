@@ -10,7 +10,7 @@ export const ItemBox = ({ data }) => {
         <ItemName>
           {data.name} {data.volume}ml
         </ItemName>
-        <ItemPrice>{data.price}원</ItemPrice>
+        <ItemPrice>{data.price.toLocaleString()}원</ItemPrice>
       </Section>
     </Link>
   );

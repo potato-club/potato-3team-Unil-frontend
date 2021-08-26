@@ -10,7 +10,7 @@ export const ProductListPage = (props) => {
   const [posts, setPosts] = useState([]);
   const [productCount, setProductCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  //테스트를 위해 일부러 3을 지정, 나중에 수정예정
+  //임시용 데이터
   const postsPerPage = 5;
   const [currentPosts, setCurrentPosts] = useState(
     posts.slice(
@@ -18,6 +18,7 @@ export const ProductListPage = (props) => {
       currentPage * postsPerPage,
     ),
   );
+  const [sortItem, setSortItem] = useState('popular');
 
   useEffect(() => {
     setProductType(props.location.state.type);
@@ -26,6 +27,7 @@ export const ProductListPage = (props) => {
         ? dummy.filter((data) => data.type === props.location.state.type)
         : dummy,
     );
+    setSortItem('popular');
   }, [props]);
 
   useEffect(() => {
@@ -36,6 +38,7 @@ export const ProductListPage = (props) => {
 
   const onClickNavItem = (title) => {
     setProductType(title);
+    setSortItem('popular');
     setPosts(
       title.length < 5 ? dummy.filter((data) => data.type === title) : dummy,
     );
@@ -50,43 +53,69 @@ export const ProductListPage = (props) => {
       ),
     );
   };
+
+  const sortPrice = (data) => {
+    const sortedArr = [...posts];
+    sortedArr.sort((a, b) => {
+      switch (data) {
+        case 'low':
+          setSortItem('low');
+          return a.price - b.price;
+        case 'high':
+          setSortItem('high');
+          return b.price - a.price;
+
+        case 'popular':
+          setSortItem('popular');
+          return a.id - b.id;
+
+        case 'id':
+          setSortItem('id');
+          return a.id - b.id;
+        default:
+          return a.id - b.id;
+      }
+    });
+    setPosts(sortedArr);
+  };
+
   return (
     <Main>
       <PageTitle pageTitle={[productType]}></PageTitle>
 
       <HeaderNav>
         <HeaderNavItem
-          isActive={[productType][0] === 'All Product'}
+          isActive={productType === 'All Product'}
           onClick={() => onClickNavItem('All Product')}>
           All
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={[productType][0] === '위스키'}
+          isActive={productType === '위스키'}
           onClick={() => onClickNavItem('위스키')}>
           위스키
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={[productType][0] === '리큐르'}
+          isActive={productType === '리큐르'}
           onClick={() => onClickNavItem('리큐르')}>
           리큐르
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={[productType][0] === '럼'}
+          isActive={productType === '럼'}
           onClick={() => onClickNavItem('럼')}>
           럼
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={[productType][0] === '브랜디'}
+          isActive={productType === '브랜디'}
           onClick={() => onClickNavItem('브랜디')}>
           브랜디
         </HeaderNavItem>
         <VerticalLine />
         <HeaderNavItem
-          isActive={[productType][0] === '보드카'}
+          isActive={productType === '보드카'}
           onClick={() => onClickNavItem('보드카')}>
           보드카
         </HeaderNavItem>
@@ -94,13 +123,29 @@ export const ProductListPage = (props) => {
       <Section>
         <Header>
           <TotalNumber>
-            전체상품 <ProductCount>{[productCount]} </ProductCount>개
+            전체상품 <ProductCount>{productCount} </ProductCount>개
           </TotalNumber>
           <SortListNav>
-            <NavItem>판매인기순</NavItem>
-            <NavItem>낮은가격순</NavItem>
-            <NavItem>높은가격순</NavItem>
-            <NavItem>등록일순</NavItem>
+            <NavItem
+              onClick={() => sortPrice('popular')}
+              isActive={sortItem === 'popular'}>
+              판매인기순
+            </NavItem>
+            <NavItem
+              onClick={() => sortPrice('low')}
+              isActive={sortItem === 'low'}>
+              낮은가격순
+            </NavItem>
+            <NavItem
+              onClick={() => sortPrice('high')}
+              isActive={sortItem === 'high'}>
+              높은가격순
+            </NavItem>
+            <NavItem
+              onClick={() => sortPrice('id')}
+              isActive={sortItem === 'id'}>
+              등록일순
+            </NavItem>
           </SortListNav>
         </Header>
         <Article>
@@ -192,8 +237,10 @@ const NavItem = styled.li`
   margin: 0;
   padding: 0;
   margin-left: 40px;
-  color: ${customColor.fontsub};
+  color: ${(props) =>
+    props.isActive ? customColor.main : customColor.fontsub};
   cursor: pointer;
+  ${(props) => props.isActive && 'font-weight: bold'};
 `;
 
 const Article = styled.div`

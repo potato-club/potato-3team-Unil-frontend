@@ -55,7 +55,9 @@ export const ProductDetailPage = (data) => {
             <tbody>
               <ProductPriceRow>
                 <ProductPriceTag>판매가</ProductPriceTag>
-                <ProductPriceData>{productData.current.price}</ProductPriceData>
+                <ProductPriceData>
+                  {productData.current.price.toLocaleString()}
+                </ProductPriceData>
               </ProductPriceRow>
             </tbody>
           </ProductPriceTable>
