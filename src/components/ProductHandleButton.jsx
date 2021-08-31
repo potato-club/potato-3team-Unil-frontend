@@ -1,10 +1,32 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
-
-export const ProductHandleButton = ({ title }) => {
-  return <ButtonWrapper>{title}</ButtonWrapper>;
+import { connect } from 'react-redux';
+import { addCart, removeCart } from 'redux/cartRedux/action';
+const ProductHandleButton = ({ title, addCart, removeCart, data }) => {
+  const HandleButton = (title) => {
+    if (title === '장바구니 담기') {
+      addCart(data.current);
+    } else if (title === '취소하기') {
+      removeCart();
+    }
+  };
+  return (
+    <ButtonWrapper onClick={() => HandleButton(title)}>{title}</ButtonWrapper>
+  );
 };
+
+const mapDisPatchToProps = (dispatch) => {
+  return {
+    addCart: (data) => dispatch(addCart(data)),
+    removeCart: () => dispatch(removeCart()),
+  };
+};
+
+export default connect(
+  (state) => ({}),
+  mapDisPatchToProps,
+)(ProductHandleButton);
 
 const ButtonWrapper = styled.button`
   width: 100%;

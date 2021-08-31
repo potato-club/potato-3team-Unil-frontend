@@ -5,7 +5,9 @@ import { CartItem } from './components/index';
 import { customColor } from 'constants/index';
 import { ProductHandleButton } from 'components';
 import { CgMathEqual, CgMathPlus } from 'react-icons/cg';
-export const CartPage = () => {
+import { connect } from 'react-redux';
+
+const CartPage = () => {
   return (
     <Section>
       <PageTitle pageTitle={'장바구니'} />
@@ -37,6 +39,13 @@ export const CartPage = () => {
     </Section>
   );
 };
+
+// const mapStateToProps = (state) => {
+//   return { list: state.list };
+// };
+
+export default connect()(CartPage);
+
 const Section = styled.div`
   display: flex;
   flex-direction: column;

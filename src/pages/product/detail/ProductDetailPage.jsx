@@ -63,7 +63,7 @@ export const ProductDetailPage = (data) => {
           </ProductPriceTable>
 
           <ProductHandleButtonWrapper>
-            <ProductHandleButton title={'장바구니 담기'} />
+            <ProductHandleButton title={'장바구니 담기'} data={productData} />
             <Air />
             <ProductHandleButton title={'구매하기'} />
           </ProductHandleButtonWrapper>
