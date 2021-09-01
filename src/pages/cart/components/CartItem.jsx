@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 import { ProductHandleButton } from 'components';
 
-export const CartItem = () => {
+export const CartItem = ({ data, index }) => {
+  const productData = useRef({
+    id: data.id,
+    name: data.name,
+    type: data.type,
+    price: data.price,
+    abv: data.abv,
+    volume: data.volume,
+    poo: data.poo,
+  });
   return (
     <ItemWrapper>
       <ItemInfoWrapper>
-        <ItemNumber>1</ItemNumber>
+        <ItemNumber>{index + 1}</ItemNumber>
         <ItemImage>사진</ItemImage>
         <ItemDescWrapper>
-          <ItemName>그대의 냠냠냠에게 건배</ItemName>
+          <ItemName>{productData.current.name}</ItemName>
           <ItemDownData>
             <ItemCountWrapper>
               <ItemCountTag>개수</ItemCountTag>
@@ -18,13 +27,15 @@ export const CartItem = () => {
             </ItemCountWrapper>
             <ItemPriceWrapper>
               <ItemPriceTag>총 가격</ItemPriceTag>
-              <ItemPrice>15,000</ItemPrice>
+              <ItemPrice>
+                {productData.current.price.toLocaleString()}
+              </ItemPrice>
             </ItemPriceWrapper>
           </ItemDownData>
         </ItemDescWrapper>
       </ItemInfoWrapper>
       <ProductHandleButtonWrapper>
-        <ProductHandleButton title={'취소하기'} />
+        <ProductHandleButton title={'취소하기'} data={productData} />
         <ProductHandleButton title={'구매하기'} />
       </ProductHandleButtonWrapper>
     </ItemWrapper>

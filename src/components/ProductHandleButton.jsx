@@ -8,7 +8,7 @@ const ProductHandleButton = ({ title, addCart, removeCart, data }) => {
     if (title === '장바구니 담기') {
       addCart(data.current);
     } else if (title === '취소하기') {
-      removeCart();
+      removeCart(data.current.id);
     }
   };
   return (
@@ -19,7 +19,7 @@ const ProductHandleButton = ({ title, addCart, removeCart, data }) => {
 const mapDisPatchToProps = (dispatch) => {
   return {
     addCart: (data) => dispatch(addCart(data)),
-    removeCart: () => dispatch(removeCart()),
+    removeCart: (data) => dispatch(removeCart(data)),
   };
 };
 
