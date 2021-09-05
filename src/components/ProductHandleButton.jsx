@@ -1,32 +1,23 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
-import { connect } from 'react-redux';
-import { addCart, removeCart } from 'redux/cartRedux/action';
-const ProductHandleButton = ({ title, addCart, removeCart, data }) => {
-  const HandleButton = (title) => {
+import { addCart, removeCart } from 'redux/cart/action';
+import { useDispatch } from 'react-redux';
+
+const ProductHandleButton = ({ title, data }) => {
+  const dispatch = useDispatch();
+
+  const HandleButton = () => {
     if (title === '장바구니 담기') {
-      addCart(data.current);
+      dispatch(addCart(data.current));
     } else if (title === '취소하기') {
-      removeCart(data.current.id);
+      dispatch(removeCart(data.current.id));
     }
   };
-  return (
-    <ButtonWrapper onClick={() => HandleButton(title)}>{title}</ButtonWrapper>
-  );
+  return <ButtonWrapper onClick={HandleButton}>{title}</ButtonWrapper>;
 };
 
-const mapDisPatchToProps = (dispatch) => {
-  return {
-    addCart: (data) => dispatch(addCart(data)),
-    removeCart: (data) => dispatch(removeCart(data)),
-  };
-};
-
-export default connect(
-  (state) => ({}),
-  mapDisPatchToProps,
-)(ProductHandleButton);
+export default ProductHandleButton;
 
 const ButtonWrapper = styled.button`
   width: 100%;

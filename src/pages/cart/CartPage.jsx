@@ -22,8 +22,14 @@ const CartPage = ({ list }) => {
       <PageTitle pageTitle={'장바구니'} />
       <CartListWrapper length={list.length}>
         {list.length !== 0 ? (
-          list.map((data, index) => (
-            <CartItem key={data.id} data={data} index={index} />
+          list.map(({ price, name, id }, index) => (
+            <CartItem
+              key={id}
+              price={price}
+              name={name}
+              id={id}
+              index={index}
+            />
           ))
         ) : (
           <Notice>장바구니가 비어있습니다.</Notice>

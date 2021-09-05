@@ -10,7 +10,7 @@ export const cartReducer = (state = list, action) => {
       id++;
       return [...state, action.payload];
     case REMOVE_CART:
-      return state.filter((data) => data.id !== action.payload);
+      return state.filter(({ id }) => id !== action.payload);
     default:
       return state;
   }

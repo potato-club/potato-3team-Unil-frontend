@@ -3,15 +3,11 @@ import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 import { ProductHandleButton } from 'components';
 
-export const CartItem = ({ data, index }) => {
+export const CartItem = ({ id, name, price, index }) => {
   const productData = useRef({
-    id: data.id,
-    name: data.name,
-    type: data.type,
-    price: data.price,
-    abv: data.abv,
-    volume: data.volume,
-    poo: data.poo,
+    id: id,
+    name: name,
+    price: price,
   });
   return (
     <ItemWrapper>
