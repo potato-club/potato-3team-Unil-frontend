@@ -6,12 +6,14 @@ import { customColor } from 'constants/index';
 
 export const ProductDetailPage = (data) => {
   const productData = useRef({
+    id: data.location.state.id,
     name: data.location.state.name,
     type: data.location.state.type,
     price: data.location.state.price,
     abv: data.location.state.abv,
     volume: data.location.state.volume,
     poo: data.location.state.poo,
+    count: 1,
   });
   return (
     <Section>

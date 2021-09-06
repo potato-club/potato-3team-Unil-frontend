@@ -3,11 +3,12 @@ import styled from '@emotion/styled';
 import { customColor } from 'constants/index';
 import { ProductHandleButton } from 'components';
 
-export const CartItem = ({ id, name, price, index }) => {
+export const CartItem = ({ id, name, price, count, index }) => {
   const productData = useRef({
     id: id,
     name: name,
     price: price,
+    count: count,
   });
   return (
     <ItemWrapper>
@@ -19,7 +20,7 @@ export const CartItem = ({ id, name, price, index }) => {
           <ItemDownData>
             <ItemCountWrapper>
               <ItemCountTag>개수</ItemCountTag>
-              <ItemCount>1</ItemCount>
+              <ItemCount>{productData.current.count}</ItemCount>
             </ItemCountWrapper>
             <ItemPriceWrapper>
               <ItemPriceTag>총 가격</ItemPriceTag>

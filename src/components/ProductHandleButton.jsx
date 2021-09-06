@@ -11,7 +11,7 @@ const ProductHandleButton = ({ title, data }) => {
     if (title === '장바구니 담기') {
       dispatch(addCart(data.current));
     } else if (title === '취소하기') {
-      dispatch(removeCart(data.current.id));
+      dispatch(removeCart(data.current));
     }
   };
   return <ButtonWrapper onClick={HandleButton}>{title}</ButtonWrapper>;

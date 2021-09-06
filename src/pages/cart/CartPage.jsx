@@ -12,8 +12,8 @@ const CartPage = ({ list }) => {
 
   useEffect(() => {
     setAllPrice(0);
-    list.map(({ price }) => {
-      return setAllPrice((prev) => prev + price);
+    list.map(({ price, count }) => {
+      return setAllPrice((prev) => prev + price * count);
     });
   }, [list]);
 
@@ -22,12 +22,13 @@ const CartPage = ({ list }) => {
       <PageTitle pageTitle={'장바구니'} />
       <CartListWrapper length={list.length}>
         {list.length !== 0 ? (
-          list.map(({ price, name, id }, index) => (
+          list.map(({ price, name, id, count }, index) => (
             <CartItem
               key={id}
               price={price}
               name={name}
               id={id}
+              count={count}
               index={index}
             />
           ))
