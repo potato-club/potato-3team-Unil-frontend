@@ -33,7 +33,7 @@ export const CartItem = ({ id, name, price, count, index }) => {
       </ItemInfoWrapper>
       <ProductHandleButtonWrapper>
         <ProductHandleButton title={'취소하기'} data={productData} />
-        <ProductHandleButton title={'구매하기'} />
+        <ProductHandleButton title={'구매하기'} data={productData} />
       </ProductHandleButtonWrapper>
     </ItemWrapper>
   );

@@ -17,6 +17,7 @@ const ProductHandleButton = ({ title, data }) => {
         setModalText('장바구니에 담았습니다.');
         break;
       case '구매하기':
+      case '바로구매하기':
         setModalText('구매했습니다.');
         break;
       case '전부 구매하기':
@@ -31,18 +32,21 @@ const ProductHandleButton = ({ title, data }) => {
     setMadalIsOpen(data);
   };
 
-  const HandleButton = () => {
+  //Modal이 나오고 dispatch하고 싶은데 그게 안되넹 Why?
+  const handleButton = () => {
+    handleModal(true);
     if (title === '장바구니 담기') {
       dispatch(addCart(data.current));
-    } else if (title === '취소하기') {
+    } else if (title === '취소하기' || title === '구매하기') {
       dispatch(removeCart(data.current));
     }
-    handleModal(true);
   };
 
   return (
     <Section>
-      <ButtonWrapper onClick={HandleButton}>{title}</ButtonWrapper>
+      <ButtonWrapper onClick={handleButton}>
+        {title === '바로구매하기' ? '구매하기' : title}
+      </ButtonWrapper>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => handleModal(false)}

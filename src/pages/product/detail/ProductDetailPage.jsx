@@ -67,7 +67,7 @@ export const ProductDetailPage = (data) => {
           <ProductHandleButtonWrapper>
             <ProductHandleButton title={'장바구니 담기'} data={productData} />
             <Air />
-            <ProductHandleButton title={'구매하기'} />
+            <ProductHandleButton title={'바로구매하기'} data={productData} />
           </ProductHandleButtonWrapper>
         </ProductInfoWrapper>
       </ProductInfoArticle>

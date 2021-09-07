@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { IoCartOutline, IoPersonCircleOutline } from 'react-icons/io5';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { DropDownBox } from './DropDownBox';
+import { useSelector } from 'react-redux';
 
 const DropDownItemData = [
   [
@@ -37,6 +38,8 @@ const DropDownItemData = [
 ];
 
 export const Header = () => {
+  const cartList = useSelector((state) => state.length);
+
   return (
     <div>
       <HeaderSection>
@@ -82,6 +85,7 @@ export const Header = () => {
           <HeaderIconItem>
             <Link to="/cart">
               <IoCartOutline style={Icon} />
+              {cartList > 0 && <CartCount>{cartList}</CartCount>}
             </Link>
           </HeaderIconItem>
           <HeaderIconItem>
@@ -137,6 +141,7 @@ const HeaderNavItem = styled.div`
 
 const HeaderIconItem = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   padding: 0;
@@ -160,6 +165,22 @@ const Icon = {
   cursor: 'pointer',
   color: customColor.fontmain,
 };
+
+const CartCount = styled.div`
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  bottom: 0;
+  right: -10px;
+  padding: 5px;
+  width: 10px;
+  height: 10px;
+  color: ${customColor.fontWhite};
+  background-color: ${customColor.main};
+  border-radius: 50%;
+`;
 
 const HeaderBottomLine = styled.div`
   width: 100%;
