@@ -90,7 +90,7 @@ const styledModal = {
     right: 'auto',
     bottom: 'auto',
     transform: 'translate(-50%, -50%)',
-    padding: '50px 120px ',
+    padding: '40px 80px ',
     alignItems: 'center',
     borderRadius: '5px',
     backgroundColor: customColor.fontWhite,
@@ -98,14 +98,14 @@ const styledModal = {
 };
 
 const Text = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 20px;
 `;
 
 const HandleModalButton = styled.button`
   width: 200px;
   height: 50px;
-
+  margin-top: 10px;
   font-size: 20px;
   background-color: ${customColor.main};
   color: ${customColor.fontWhite};
